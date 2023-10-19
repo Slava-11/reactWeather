@@ -1,8 +1,13 @@
 import { useApiContext } from "../../context/AppContext";
 
 export const useFunctional = () => {
-  const { isLight, setIsLight, city, setIsCitySelected, setCity } =
-    useApiContext();
+  const {
+    isLight,
+    setIsLight,
+    city,
+    setIsCitySelected,
+    setCity,
+  } = useApiContext();
   const inputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCity(e.target.value);
     setIsCitySelected(false);

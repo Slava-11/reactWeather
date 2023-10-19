@@ -1,15 +1,15 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { getWeather } from "../api/api";
-///Тут изменить название на AppContext
+
 type ApiContextType = {
   isLight: boolean;
-  setIsLight: boolean;
+  setIsLight: React.Dispatch<React.SetStateAction<boolean>>;
   city: string;
-  setCity: string;
+  setCity: React.Dispatch<React.SetStateAction<string>>;
   isCitySelected: boolean;
-  setIsCitySelected: boolean;
+  setIsCitySelected: React.Dispatch<React.SetStateAction<boolean>>;
   dayWeather: any;
-  setDayWeather: any;
+  setDayWeather: React.Dispatch<React.SetStateAction<any>>;
   error: string | null;
 };
 
@@ -31,7 +31,7 @@ export const ApiProvider: React.FC<ApiProviderProps> = ({ children }) => {
   const [isLight, setIsLight] = useState(true);
   const [city, setCity] = useState("");
   const [isCitySelected, setIsCitySelected] = useState(false);
-  const [dayWeather, setDayWeather] = useState();
+  const [dayWeather, setDayWeather] = useState<any>();
   const [error, setError] = useState<string | null>("");
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export const ApiProvider: React.FC<ApiProviderProps> = ({ children }) => {
         });
     }
   }, [city, isCitySelected]);
-  console.log(dayWeather)
+  console.log(dayWeather);
 
   return (
     <ApiContext.Provider

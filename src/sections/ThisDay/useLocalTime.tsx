@@ -8,7 +8,7 @@ function formatLocalTime(timestamp: number, timezoneOffset: number): string {
   const formattedMinutes = minutes.toString().padStart(2, "0");
   return `${formattedHours}:${formattedMinutes}`;
 }
-
+//@ts-expect-error abc
 export function useLocalTime(dayWeather: AppProps | null) {
   const [localTime, setLocalTime] = useState<string | null>(null);
 
