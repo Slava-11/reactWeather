@@ -10,7 +10,6 @@ type ApiContextType = {
   setIsCitySelected: React.Dispatch<React.SetStateAction<boolean>>;
   dayWeather: any;
   setDayWeather: React.Dispatch<React.SetStateAction<any>>;
-  error: string | null;
 };
 
 const ApiContext = createContext<ApiContextType | undefined>(undefined);
@@ -32,7 +31,6 @@ export const ApiProvider: React.FC<ApiProviderProps> = ({ children }) => {
   const [city, setCity] = useState("");
   const [isCitySelected, setIsCitySelected] = useState(false);
   const [dayWeather, setDayWeather] = useState<any>();
-  const [error, setError] = useState<string | null>("");
 
   useEffect(() => {
     if (isCitySelected) {
@@ -40,7 +38,7 @@ export const ApiProvider: React.FC<ApiProviderProps> = ({ children }) => {
         .then((data) => {
           setDayWeather(data);
         })
-        .catch((error) => {
+        .catch(() => {
           console.log("Помилка");
         });
     }
@@ -58,7 +56,6 @@ export const ApiProvider: React.FC<ApiProviderProps> = ({ children }) => {
         setIsCitySelected,
         dayWeather,
         setDayWeather,
-        error,
       }}
     >
       {children}
