@@ -1,15 +1,10 @@
 import logo from "../../img/logo.svg";
 import colourTheme from "../../img/colourTheme.svg";
 import { Button } from "../../components/Button";
-import { useColorTheme } from "./useColorTheme";
-import { useFormSubmit } from "./useFormSubmit";
-import { useInputChange } from "./useInputChange";
+import { useFunctional } from "./useFunctional";
 import { useApiContext } from "../../context/AppContext";
-//тут создать один файл с этими use кроме последнего большого
 export const Header = () => {
-  const colorTheme = useColorTheme();
-  const formSubmit = useFormSubmit();
-  const inputChange = useInputChange();
+  const { handleClick, formSubmit, inputChange } = useFunctional();
   const { city } = useApiContext();
   return (
     <header className="px-[10px] pt-[15px] forDesktop:flex items-center justify-between w-[100%] max-w-[1200px] mx-auto pt-[20px]">
@@ -19,9 +14,9 @@ export const Header = () => {
           React weather
         </h1>
         <img
-          className="ml-auto forDesktop:hidden"
+          className="ml-auto cursor-pointer forDesktop:hidden"
           src={colourTheme}
-          onClick={colorTheme}
+          onClick={handleClick}
           alt="no colourTheme"
         />
       </div>
@@ -30,9 +25,9 @@ export const Header = () => {
         onSubmit={formSubmit}
       >
         <img
-          className="mobile:hidden forDesktop:block"
+          className="mobile:hidden cursor-pointer forDesktop:block"
           src={colourTheme}
-          onClick={colorTheme}
+          onClick={handleClick}
           alt="no colourTheme"
         />
         <input

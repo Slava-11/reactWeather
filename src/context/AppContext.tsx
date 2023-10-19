@@ -45,6 +45,7 @@ export const ApiProvider: React.FC<ApiProviderProps> = ({ children }) => {
         });
     }
   }, [city, isCitySelected]);
+  console.log(dayWeather)
 
   return (
     <ApiContext.Provider

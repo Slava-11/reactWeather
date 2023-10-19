@@ -23,9 +23,9 @@ export const ThisDayInfo = ({
         <img src={src} alt="no icon" />
       </div>
 
-      <h3 className="text-[14px] font-montserrat font-[400] text-mainTextColor mt-[15px] forDesktop:ml-[20px] forDesktop:mt-[0px]">
+      <h3 className="text-[14px] font-montserrat font-[400] text-mainTextColor mt-[15px] text-center forDesktop:text-left forDesktop:ml-[20px] forDesktop:mt-[0px]">
         {title}:{" "}
-        <span className="text-black dark:text-white ml-[20px]">{text}</span>
+        <span className="text-black dark:text-white ml-[20px] block mt-[10px] forDesktop:mt-[0px] forDesktop:inline">{text}</span>
       </h3>
     </div>
   );

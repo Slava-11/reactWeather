@@ -19,6 +19,7 @@ export default {
         'black': '#000',
         'white': '#fff',
         'mainColor': '#4793FF',
+        'redColor' : '#8b0000',
         'blueTransparent': 'rgba(71, 147, 255, 0.2)',
         'mainBgColor': '#0D1117',
         'secondBgColor': '#4F4F4F;',

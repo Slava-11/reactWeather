@@ -1,6 +1,6 @@
 import { ApiProvider } from "./context/AppContext.tsx";
 import { Header } from "./sections/Header/Header.tsx";
-import { ThisDay } from "./sections/ThisDay";
+import { ThisDay } from "./sections/ThisDay/ThisDay";
 
 function App() {
   return (

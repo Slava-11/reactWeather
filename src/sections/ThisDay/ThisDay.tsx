@@ -1,35 +1,25 @@
-import { ThisDayInfo } from "../components/ThisDayInfo";
-import cloud from "../img/cloud.png";
-import thermometer from "../img/thermometer.svg";
-import humidity from "../img/humidity.svg";
-import evaporator from "../img/evaporator.svg";
-import wind from "../img/wind.svg";
-import { useApiContext } from "../context/AppContext";
-import { useLocalTime } from "./Header/useLocalTime";
-///Тут вынести всю эту мотимотическую тему
+import { ThisDayInfo } from "../../components/ThisDayInfo";
+import cloud from "../../img/cloud.png";
+import thermometer from "../../img/thermometer.svg";
+import humidity from "../../img/humidity.svg";
+import evaporator from "../../img/evaporator.svg";
+import wind from "../../img/wind.svg";
+import { useApiContext } from "../../context/AppContext";
+import { useLocalTime } from "./useLocalTime";
+import { useWeatherHelpers } from "./useWeatherHelpers";
 export const ThisDay = () => {
   const { dayWeather } = useApiContext();
-  const temp = `${Math.round(dayWeather?.main?.temp - 273.15) || "0"}°`;
-  const textTemp = `${
-    Math.round(dayWeather?.main?.temp - 273.15) || "0"
-  }° - відчувається як ${
-    Math.round(dayWeather?.main?.feels_like - 273.15) || "0"
-  }°`;
-  const weatherIcon = dayWeather?.weather?.[0]?.icon || "10d";
-  const weatherImg = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`
-  const textHumidity = `${
-    Math.round(dayWeather?.main?.pressure * 0.75006375541921) || "0"
-  } ртутного стовпчика`;
-  const textEvaporator = `${
-    dayWeather?.weather?.[0]?.description || "0"
-  } вологість: ${dayWeather?.main?.humidity || "0"}%`;
-  const textWind = `швидкість вітру: ${
-    dayWeather?.wind?.speed || "0"
-  } м/с;  напрямок вітра: ${dayWeather?.wind?.deg || "0"}°`;
+  const { temp, textTemp, weatherImg, textHumidity, textEvaporator, textWind } =
+    useWeatherHelpers();
 
   const localTime = useLocalTime(dayWeather);
   return (
     <section className="mt-[50px] px-[10px] flex flex-wrap items-center gap-[50px] forDesktop:justify-center">
+      {dayWeather?.message ? (
+        <p className="absolute top-0 left-0 right-0 w-[350px] font-montserrat font-medium text-center mx-auto p-[10px] bg-redColor text-white rounded-br-lg rounded-bl-lg">
+          Введіть місто коректно
+        </p>
+      ) : null}
       <div className="w-[100%] max-w-[400px] shadow-custom rounded-[20px] p-[20px] dark:bg-secondBgColor">
         <div className="flex items-center justify-between">
           <div>
