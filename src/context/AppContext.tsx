@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { getWeather } from "../api/api";
-
+///Тут изменить название на AppContext
 type ApiContextType = {
   isLight: boolean;
   setIsLight: boolean;

@@ -5,7 +5,7 @@ import { useColorTheme } from "./useColorTheme";
 import { useFormSubmit } from "./useFormSubmit";
 import { useInputChange } from "./useInputChange";
 import { useApiContext } from "../../context/AppContext";
-
+//тут создать один файл с этими use кроме последнего большого
 export const Header = () => {
   const colorTheme = useColorTheme();
   const formSubmit = useFormSubmit();

@@ -6,7 +6,7 @@ import evaporator from "../img/evaporator.svg";
 import wind from "../img/wind.svg";
 import { useApiContext } from "../context/AppContext";
 import { useLocalTime } from "./Header/useLocalTime";
-
+///Тут вынести всю эту мотимотическую тему
 export const ThisDay = () => {
   const { dayWeather } = useApiContext();
   const temp = `${Math.round(dayWeather?.main?.temp - 273.15) || "0"}°`;
@@ -16,6 +16,7 @@ export const ThisDay = () => {
     Math.round(dayWeather?.main?.feels_like - 273.15) || "0"
   }°`;
   const weatherIcon = dayWeather?.weather?.[0]?.icon || "10d";
+  const weatherImg = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`
   const textHumidity = `${
     Math.round(dayWeather?.main?.pressure * 0.75006375541921) || "0"
   } ртутного стовпчика`;
@@ -41,7 +42,7 @@ export const ThisDay = () => {
           </div>
           <img
             className="w-[120px] h-[120px] "
-            src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
+            src={weatherImg}
             alt="no weather icon"
           />
         </div>
